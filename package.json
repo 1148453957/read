@@ -1,0 +1,121 @@
+{
+  "name": "drh",
+  "displayName": "drh",
+  "description": "drj",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.68.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:drh.helloWorld",
+    "onView:myviewDrh",
+    "onView:myviewDrh2",
+    "test-read-book-status-bar.search",
+    "test-read-book-status-bar.pre",
+    "test-read-book-status-bar.next",
+    "test-read-book-status-bar.lll"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "test-drh",
+          "title": "test drh",
+          "icon": "./src/asset/ice.svg"
+        }
+      ]
+    },
+    "views": {
+      "test-drh": [
+        {
+          "id": "myviewDrh",
+          "name": "myview Drh",
+          "icon": "./src/asset/ice.svg",
+          "contextualTitle": "lalalallalal"
+        },
+        {
+          "id": "myviewDrh2",
+          "name": "myview Drh2"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "test-read-book-status-bar.search",
+          "group": "navigation",
+          "when": "view == myviewDrh2"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "test-read-book-status-bar.next",
+        "key": "PageUp",
+        "mac": "PageUp",
+        "when": "isLinux || isWindows || isMac"
+      },
+      {
+        "command": "test-read-book-status-bar.before",
+        "key": "PageDown",
+        "mac": "PageDown",
+        "when": "isLinux || isWindows || isMac"
+      },
+      {
+        "command": "test-read-book-status-bar.lll",
+        "key": "End",
+        "mac": "End",
+        "when": "isLinux || isWindows || isMac"
+      }
+    ],
+    "commands": [
+      {
+        "command": "drh.helloWorld",
+        "title": "Hello World"
+      },
+      {
+        "command": "test-read-book-status-bar.search",
+        "title": "测试搜搜搜"
+      },
+      {
+        "command": "test-read-book-status-bar.next",
+        "title": "测试下下下"
+      },
+      {
+        "command": "test-read-book-status-bar.before",
+        "title": "测试上上上"
+      },
+      {
+        "command": "test-read-book-status-bar.lll",
+        "title": "测试啦啦啦"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.68.0",
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "eslint": "^8.16.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.2",
+    "@vscode/test-electron": "^2.1.3"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.11",
+    "iconv-lite": "^0.6.3",
+    "superagent": "^7.1.6",
+    "superagent-charset": "^1.2.0"
+  }
+}
